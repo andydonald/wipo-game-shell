@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "wipo-game-shell",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

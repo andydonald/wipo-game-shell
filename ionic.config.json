@@ -1,0 +1,8 @@
+{
+  "name": "wipo-game-shell",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "5642ee64"
+}
