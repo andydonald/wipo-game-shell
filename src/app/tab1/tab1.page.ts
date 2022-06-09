@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { Analytics } from '../../analytics';
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
@@ -8,5 +8,9 @@ import { Component } from '@angular/core';
 export class Tab1Page {
 
   constructor() {}
+	
+ionViewDidEnter() {
+    Analytics.pageTracking('/tabs/tab1', 'tab1');
+  }	
 
 }
