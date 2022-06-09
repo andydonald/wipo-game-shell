@@ -27,13 +27,25 @@ function ini(){
 	
 	///final score
 	score = 80;
-	testBtn = createBtn({w:100,h:50, colour:'#000', nfunction: 'null', idRef:'testBtn', text:[{t:'Score:'+score, s:'16', f:'Arial', c:'#fff'}]});
-    stage.addChild(testBtn);
+	startNewGameBtn = createBtn({w:100,h:50, colour:'#000', nfunction: 'null', idRef:'startNewGame', text:[{t:'Start', s:'16', f:'Arial', c:'#fff'}]});
+    stage.addChild(startNewGameBtn);
+	startNewGameBtn.addEventListener("mousedown", startNewGame, this);
+	startNewGameBtn.x = (stage_width/2) - 200 
+	startNewGameBtn.y = stage_height/2
 	
-	testBtn.addEventListener("mousedown", sendscore, this);
+	finishGameBtn = createBtn({w:100,h:50, colour:'#000', nfunction: 'null', idRef:'finishGame', text:[{t:'Finish', s:'16', f:'Arial', c:'#fff'}]});
+    stage.addChild(finishGameBtn);
+	finishGameBtn.addEventListener("mousedown", finishGame, this);
+	finishGameBtn.x = (stage_width/2) - 50 
+	finishGameBtn.y = stage_height/2
 	
-	testBtn.x = stage_width- 105
-	testBtn.y = stage_height-55
+	replayGameBtn = createBtn({w:100,h:50, colour:'#000', nfunction: 'null', idRef:'replayGame', text:[{t:'Replay', s:'16', f:'Arial', c:'#fff'}]});
+    stage.addChild(replayGameBtn);
+	replayGameBtn.addEventListener("mousedown", replayGame, this);
+	replayGameBtn.x = (stage_width/2) + 100 
+	replayGameBtn.y = stage_height/2
+	
+	
  
     stage.update();
  
@@ -46,15 +58,26 @@ function ini(){
     createjs.Ticker.addEventListener("tick", stage);	
 }
 
-function sendscore(e){
-	console.log('trackEvent >>>>>');
-	_paq.push(['trackEvent', 'wsitCustomEvent', 'rfipGameFinish', 'respectForIPGame', 'gameFinished', score, null]);
+function startNewGame(e){
+	console.log('trackEvent >>>>> rfipGameStart');
+	_paq.push(['trackEvent', 'wsitCustomEvent', 'rfipGameStart', 'respectForIPGame', 'gameStart', 0, null]);
 	generateNewScore();
+}
+
+function finishGame(e){
+	console.log('trackEvent >>>>> rfipGameFinish');
+	_paq.push(['trackEvent', 'wsitCustomEvent', 'rfipGameFinish', 'respectForIPGame', 'gameFinished', score, null]);
+	
+}
+
+function replayGame(e){
+	console.log('trackEvent >>>>> rfipGameReplay');
+	_paq.push(['trackEvent', 'wsitCustomEvent', 'rfipGameReplay', 'respectForIPGame', 'gameReplay', 0, null]);
 }
 
 function generateNewScore(){
 	score = Math.floor(Math.random() * 100);
-	testBtn.updateText('Score:'+score);
+	//testBtn.updateText('Score:'+score);
 }
 
 function createBtn(params){
