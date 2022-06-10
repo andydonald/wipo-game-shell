@@ -8,7 +8,7 @@ import { Analytics } from '../../analytics';
 export class Tab3Page {
 
   constructor() {}
-ionViewWillEnter() {
+ionViewDidEnter() {
     Analytics.pageTracking('/tabs/tab3', 'tab3');
   }
 }
