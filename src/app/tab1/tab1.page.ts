@@ -9,7 +9,7 @@ export class Tab1Page {
 
   constructor() {}
 	
-ionViewDidEnter() {
+ionViewWillEnter() {
     Analytics.pageTracking('/tabs/tab1', 'tab1');
   }	
 
