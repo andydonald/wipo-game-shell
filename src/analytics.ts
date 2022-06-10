@@ -5,7 +5,7 @@ export class Analytics {
         if (_paq) {
             _paq.push(['setCustomUrl', route]);
             _paq.push(['setDocumentTitle', pageTitle]);
-            _paq.push(['trackPageView']);
+            //_paq.push(['trackPageView']);
         }
     }
     static dispatachMessageEvt(evtType, evtName, evtCategory, evtAction, evtValue, evtDetails) {
